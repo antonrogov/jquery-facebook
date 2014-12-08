@@ -6,7 +6,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["antonrogov@me.com"]
   gem.summary       = "Facebook JavaScript SDK loader"
   gem.description   = "Facebook JavaScript SDK unobtrusive loader for jQuery and Rails"
-  gem.homepage      = "http://github.com/antonr/jquery-facebook"
+  gem.homepage      = "http://github.com/antonrogov/jquery-facebook"
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
