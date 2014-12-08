@@ -54,6 +54,15 @@ triggered.
       alert('Done!');
     });
 
+Another way is to pass callback to the `$.facebookLoaded` function which will set
+the facebook:init event handler if facebook isn't loaded yet and fire the
+callback right away if it it.
+
+    $.facebookLoaded(function () {
+      alert('Done!');
+    });
+
+
 ## Contributing
 
 1. Fork it
