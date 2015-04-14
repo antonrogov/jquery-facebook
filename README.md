@@ -62,6 +62,11 @@ callback right away if it it.
       alert('Done!');
     });
 
+## Changelog
+
+### v1.0.0
+
+The default JS SDK version is 2.3 now.
 
 ## Contributing
 

@@ -1,17 +1,20 @@
 window.facebookLoaded = false;
 
-$.facebookInit = function (options) {
-  var defaults = { status: true,
-                   cookie: true,
-                   xfbml: true },
+$.facebookInit = function (opts) {
+  var options = { status: true,
+                  cookie: true,
+                  xfbml: true,
+                  version: 'v2.3' },
       meta = $('meta[property="fb:app_id"]');
 
   if (meta.length) {
-    defaults.appId = meta.attr('content');
+    options.appId = meta.attr('content');
   }
 
+  options = $.extend(options, opts);
+
   window.fbAsyncInit = function () {
-    FB.init($.extend(defaults, options));
+    FB.init(options);
     window.facebookLoaded = true;
     $(document).trigger('facebook:init');
   };
@@ -20,9 +23,12 @@ $.facebookInit = function (options) {
     $('body').append('<div id="fb-root"></div>');
   }
 
+  var path = options.version == '1.0' ? '//connect.facebook.net/en_US/all.js'
+                                      : '//connect.facebook.net/en_US/sdk.js';
+
   var e = document.createElement('script');
   e.async = true;
-  e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+  e.src = document.location.protocol + path;
   document.getElementById('fb-root').appendChild(e);
 }
 
